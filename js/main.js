@@ -1,54 +1,12 @@
-/*****PRODUCTOS******/
 
-const products = [
-    //Limpiadores
-    { id: "limpiador-cerave", title: "Gel limpiador Cerave", image: "./img/limpiadores/cerave-limpiador.jpg", category: { name: "Limpiador", id: "limpiador" }, price: 1900 },
-    {
-        id: "dermopure-eucerin", title: "Dermopure Eucerin", image: "./img/limpiadores/dermopure-eucerin.png", category: { name: "Limpiador", id: "limpiador" }, price: 4200
-    },
-    {
-        id: "effaclar-larocheposay", title: "Effaclar La Roche Posay", image: "./img/limpiadores/effaclarlimpiador-lrp.jpg", category: { name: "Limpiador", id: "limpiador" }, price: 5600
-    },
-    {
-        id: "lipikar-larocheposay", title: "Lipikar La Roche Posay", image: "./img/limpiadores/lipikar-lrp.jpg", category: { name: "Limpiador", id: "limpiador" }, price: 4800
-    },
-    //Hidratantes
-    {
-        id: "hydrance-avene", title: "Hydrance Avene", image: "./img/hidratantes/avene-hydrance.jpg", category: { name: "Hidratante", id: "hidratante" }, price: 8500
-    },
-    {
-        id: "effaclar-mat-lrp", title: "Effaclar Mat LRP", image: "./img/hidratantes/effaclar-mat-lrp.webp", category: { name: "Hidratante", id: "hidratante" }, price: 9200
-    },
-    {
-        id: "toleriane-larocheposay", title: "Toleriane La Roche Posay", image: "./img/hidratantes/toleriane.lrp.jpg", category: { name: "Hidratante", id: "hidratante" }, price: 4600
-    },
-    //Serums
-    {
-        id: "serum-vol1-dadatina", title: "Serum vol.1 Dadatina", image: "./img/serums/acfserum-dadatina.webp", category: { name: "Serum", id: "serum" }, price: 2900
-    },
-    {
-        id: "hyalu-b5", title: "Hyalu B5", image: "./img/serums/hyalub5-lrp.webp", category: { name: "Serum", id: "serum" }, price: 11000
-    },
-    {
-        id: "mineral89-vichy", title: "Mineral 89 Vichy", image: "./img/serums/mineral89-vichy.webp", category: { name: "Serum", id: "serum" }, price: 9000
-    },
-    {
-        id: "vitc-lrp", title: "Vit C LRP", image: "./img/serums/vitc-lrp.webp", category: { name: "Serum", id: "serum" }, price: 10500
-    },
-    //Solares
-    {
-        id: "anthelios50-lrp", title: "Anthelios 50+ LRP", image: "./img/solares/anthelios-lrp.webp", category: { name: "Solares", id: "solares" }, price: 5480
-    },
-    {
-        id: "fusion-water-isdin", title: "Fusion Water Isdin", image: "./img/solares/fusionwater-isdin.jpg", category: { name: "Solares", id: "solares" }, price: 5490
-    },
-    {
-        id: "eucerin-oil-control", title: "Eucerin Oil Control", image: "./img/solares/oilcontrol-eucerin.webp", category: { name: "Solares", id: "solares" }, price: 4800
-    },
+let products = [];
 
-]
-
-/******FIN PRODUCTOS*******/
+fetch("./js/items.json")
+    .then( response => response.json())
+    .then( data => {
+        products = data;
+        loadProducts(products);
+    })
 
 
 const containerProducts = document.querySelector("#container-products");

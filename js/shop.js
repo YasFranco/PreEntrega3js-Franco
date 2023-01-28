@@ -126,6 +126,20 @@ buttonFinalizarCompra.addEventListener("click", buyShop);
 
 function buyShop() {
 
+    Swal.fire({
+        title: 'Muchas gracias por tu compra!',
+        width: 600,
+        padding: '3em',
+        color: '#8314B8',
+        background: '#fff url(/images/trees.png)',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `
+      })
+
     productsShop.length = 0;
     localStorage.setItem("products-shop", JSON.stringify(productsShop));
 
